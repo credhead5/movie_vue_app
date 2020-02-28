@@ -3,6 +3,7 @@
     <div class="container">
       <form v-on:submit.prevent="submit()">
         <h1>New Movie</h1>
+        <img v-if="status" v-bind:src="`https://http.cat/${status}`" />
         <ul>
           <li class="text-danger" v-for="error in errors">{{ error }}</li>
         </ul>
@@ -17,6 +18,9 @@
         <div class="form-group">
           <label>Plot:</label>
           <input type="text" class="form-control" v-model="plot" />
+          <small v-if="plot" v-bind:class="{ 'text-danger': 30 - plot.length < 5 }">
+            {{ 30 - plot.length }} characters remaining
+          </small>
         </div>
         <div class="form-group">
           <label>Director:</label>

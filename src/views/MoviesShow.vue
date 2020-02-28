@@ -3,7 +3,11 @@
     <div class="text-center">
       <h1>{{ movie.title }}</h1>
     </div>
-    <div v-for="movie in movies">
+    <div
+      v-for="movie in movies"
+      v-on:click="currentRecipe = recipe"
+      v-bind:class="{ selected: recipe === currentRecipe }"
+    >
       <h4>Director</h4>
       <p>{{ movie.director }}</p>
     </div>
@@ -13,7 +17,13 @@
   </div>
 </template>
 
-<style></style>
+<style>
+.selected {
+  color: white;
+  background-color: steelBlue;
+  transition: background-color 1s ease;
+}
+</style>
 
 <script>
 import axios from "axios";
