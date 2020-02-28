@@ -3,14 +3,16 @@
     <div class="text-center">
       <h1>{{ movie.title }}</h1>
     </div>
-    <div
-      v-for="movie in movies"
-      v-on:click="currentRecipe = recipe"
-      v-bind:class="{ selected: recipe === currentRecipe }"
-    >
+    <div v-for="movie in movies" v-on:click="currentMovie = movie" v-bind:class="{ selected: movie === currentMovie }">
       <h4>Director</h4>
       <p>{{ movie.director }}</p>
     </div>
+
+    movies user id: {{ movie.user.id }}
+    <br />
+    current user id: {{ $parent.getUserId() }}
+    <br />
+
     <router-link class="btn btn-warning" v-if="movie.user.id == $parent.getUserId()" :to="`/movies/${movie.id}/edit`">
       Edit
     </router-link>
