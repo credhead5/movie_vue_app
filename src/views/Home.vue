@@ -21,7 +21,7 @@
       <input type="text" v-model="newMovieEnglish" />
       <br />
 
-      <button v-on:click="createMovie()">Create Contact</button>
+      <button v-on:click="createMovie()">Add Movie</button>
     </div>
 
     <div>
@@ -71,7 +71,7 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      message: "Welcome to Vue.js!",
+      message: "",
       movies: [],
       newMovieTitle: "",
       newMovieYear: "",
