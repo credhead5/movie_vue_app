@@ -1,10 +1,22 @@
 <template>
   <div class="movies-index">
     <h1>All Movies</h1>
-    <div v-for="movie in movies">
-      <h1>{{ movie.title }}</h1>
-      <router-link :to="`/movies/${movie.id}`">More Info</router-link>
-    </div>
+
+    <section id="two">
+      <h2>Recent Work</h2>
+      <div class="row">
+        <article v-for="movie in movies" class="col-6 col-12-xsmall work-item">
+          <router-link :to="`/movies/${movie.id}`" class="image fit thumb">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/en/thumb/d/db/The_Movies_Coverart.jpg/220px-The_Movies_Coverart.jpg"
+              alt=""
+            />
+          </router-link>
+          <h3>Title: {{ movie.title }}</h3>
+          <p>Year: {{ movie.year }}</p>
+        </article>
+      </div>
+    </section>
   </div>
 </template>
 

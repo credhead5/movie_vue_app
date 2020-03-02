@@ -27,6 +27,7 @@
     <div>
       <div v-for="movie in movies">
         <h2>{{ movie.title }}</h2>
+        <h2>{{ movie.year }}</h2>
 
         <button v-on:click="movie.showExtraInfo = !movie.showExtraInfo">More Info</button>
         <div v-if="movie.showExtraInfo">
